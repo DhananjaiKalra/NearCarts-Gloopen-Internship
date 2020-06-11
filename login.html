@@ -1,0 +1,171 @@
+<html>
+
+<head>
+    <title>Login Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <style>
+        html,
+        body {
+            overflow: hidden;
+            background-image: url('aa.jpg');
+            background-repeat: no-repeat;
+        background-size:cover;
+             /*filter: grayscale(90%); */
+        }
+
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -35%);
+            -webkit-transform: translate(-50%, -50%);
+        }
+
+        /*#form {*/
+
+            /*width: 40vw;*/
+            /*height: 80%;*/
+        /*    border-radius: 20px;*/
+        /*    box-shadow: inset 2px 250px 900px rgba(255, 255, 255, 0.85);*/
+        /*    padding-left: 30%;*/
+        /*}*/
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+#form{width: 70vw;
+height: 60vh;
+    border-radius: 20px;
+            box-shadow: inset 2px 250px 900px rgba(255, 255, 255, 0.85);
+            padding-left: 30%;
+}
+}
+@media only screen  and (min-width : 1224px) {
+#form{width: 30vw;
+height: 80vh;
+    border-radius: 20px;
+            box-shadow: inset 2px 250px 900px rgba(255, 255, 255, 0.85);
+            padding-left: 30%;
+}
+}
+
+        input {
+            width: 200px;
+            margin: 8px 0px 8px 0px;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            background:
+                rgba(0, 0, 0, 0.5);
+            filter: grayscale(0%);
+            color: #f4f4f4;
+        }
+
+        input::placeholder {
+            color: #d4d4d4;
+        }
+
+        input:focus {
+            outline: none;
+        }
+
+        a {
+            color: #fff;
+            display: block;
+            font-weight: bold;
+        }
+
+        a:hover {
+            color: #fff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <div class="col-lg-12 center" id="form" autocomplete="off">
+        <center>
+
+
+            <form action="login.php" class="center" method="POST">
+<img src="logog.png" class="img-fluid">
+                <!--<i class="fas fa-shopping-cart  fa-5x" style="color:rgba(0,0,0,0.5);margin-bottom:15px"></i>-->
+                <!--<span class="display-3" style="color:rgba(0,0,0,0.5);">Nearcarts</span>-->
+                <br>
+                <div class="col-lg-12"> <input type="hidden" name="name" id="name" placeholder="Enter Name" /></div>
+                <div class="col-lg-12"> <input type="hidden" name="phone" id="phone" placeholder="Enter Mobile no." />
+                </div>
+                <div class="col-lg-12"> <input type="email" name="email" id="email" placeholder="Enter Email" /></div>
+                <div class="col-lg-12"> <input type="password" name="password" id="password"
+                        placeholder="Enter Password" />
+                </div>
+                <div class="col-lg-12"> <input class='btn btn-primary' type="submit" value="submit" id="submit"
+                        name="login" />
+                    <a id="uppass" href="JavaScript:updatepassword();">Forgot Password</a>
+                    <a id="login" href="JavaScript:login();" style="display:none;">Login</a>
+                    <a id="regis" href="JavaScript:register();">Register</a>
+
+                </div>
+            </form>
+        </center>
+    </div>
+    <script>
+        function updatepassword() {
+            // alert('helloooo');
+            document.getElementById("password").setAttribute("type", "hidden");
+            document.getElementById("submit").setAttribute("name", "upass");
+            document.getElementById("email").required = true;
+            document.getElementById("password").required = true;
+            document.getElementById("uppass").style.display = "none";
+            document.getElementById("login").style.display = "block";
+            document.getElementById("regis").style.display = "block";
+            document.getElementById("name").setAttribute("type", "hidden");;
+            document.getElementById("phone").setAttribute("type", "hidden");
+        }
+
+        function register() {
+            // alert('helloooo');
+            document.getElementById("submit").setAttribute("name", "regis");
+
+            document.getElementById("name").setAttribute("type", "text");
+            document.getElementById("phone").setAttribute("type", "text");
+            document.getElementById("regis").style.display = "none";
+            document.getElementById("login").style.display = "block";
+            document.getElementById("uppass").style.display = "block";
+            document.getElementById("password").setAttribute("type", "hidden");
+            document.getElementById("name").required = true;
+            document.getElementById("phone").required = true;
+            document.getElementById("email").required = true;
+
+        }
+
+        function login() {
+            document.getElementById("submit").setAttribute("name", "login");
+
+            document.getElementById("name").setAttribute("type", "hidden");;
+            document.getElementById("phone").setAttribute("type", "hidden");
+            document.getElementById("email").required = true;
+            document.getElementById("password").required = true;
+            document.getElementById("login").style.display = "none";
+            document.getElementById("regis").style.display = "block";
+            document.getElementById("uppass").style.display = "block";
+            document.getElementById("password").setAttribute("type", "password");;
+
+        }
+    </script>
+</body>
+
+</html>
